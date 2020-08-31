@@ -1,0 +1,138 @@
+@import "_reseter";
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+.wrapper {
+  font-family: "Roboto", sans-serif;
+  min-width: 100%;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #1f1e1e;
+  padding: 7px;
+}
+
+$buttons: #2ecc71;
+$table: #3498db;
+$failCol: #fa4d3a;
+
+%button {
+  width: 100px;
+  height: 30px;
+  border-radius: 30px;
+  background: none;
+  color: $buttons;
+  border: 2px solid $buttons;
+  font-size: 15px;
+  transition: 0.3s;
+  letter-spacing: 0.6px;
+  &:hover {
+    background: $buttons;
+    color: #ffffff;
+  }
+}
+
+.app {
+  flex: 1 1 auto;
+  .game {
+    color: #ffffff;
+    .container {
+      padding: 25px 0;
+      max-width: 1000px;
+      margin: 0 auto;
+      .game__row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .game__preview {
+          .game__start {
+            text-align: center;
+            margin: 0px 0px 20px 0px;
+            button {
+              @extend %button;
+            }
+          }
+          .game__description {
+            font-size: 20px;
+            letter-spacing: 0.6px;
+          }
+        }
+        .game__content {
+          font-size: 18px;
+          letter-spacing: 0.75px;
+          .game__time {
+            text-align: center;
+            span {
+              padding-left: 7px;
+            }
+          }
+          .game__result {
+            display: none;
+            text-align: center;
+            .result__success{
+              color: $buttons;
+              letter-spacing: 0.8px;
+              text-transform: uppercase;
+            }
+            .result__failure{
+              color: $failCol;
+              letter-spacing: 0.8px;
+              text-transform: uppercase;
+            }
+          }
+          .game__field {
+            margin: 50px 0;
+            width: 200px;
+            .field__container {
+              border: 2px solid $table;
+              display: flex;
+              flex-direction: column;
+              border-radius: 3px;
+              padding: 3px;
+              .field__row {
+                display: flex;
+                margin: 0px 0px 3px 0px;
+                .field__item{
+                  flex: 1 1 32.333%;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  border: 1px solid $table;
+                  padding: 7px 0;
+                  cursor: pointer;
+                  &:nth-child(even){
+                        margin: 0px 3px 0px 3px;
+                  }
+                  &:hover{
+                        opacity: 0.8;
+                  }
+                  &.clicked{
+                    background: #9b59b6;
+                  }
+                }
+               &:last-child{
+                     margin: 0;
+               } 
+              }
+            }
+          }
+          .game__restart{
+            text-align: center;
+            button{
+                  @extend %button;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.hide{
+      display: none;
+}
+
+.active{
+      display: block;
+}
